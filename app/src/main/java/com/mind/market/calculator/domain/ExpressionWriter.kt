@@ -2,33 +2,33 @@ package com.mind.market.calculator.domain
 
 class ExpressionWriter {
     var expression = ""
-    fun processAction(action: CalculationAction) {
+    fun processAction(action: CalculatorAction) {
         when (action) {
-            CalculationAction.Calculate -> {
+            CalculatorAction.Calculate -> {
                 val parser = ExpressionParser(prepareForCalculation())
                 val evaluator = ExpressionEvaluator(parser.parse())
                 expression = evaluator.evaluate().toString()
             }
-            CalculationAction.Clear -> {
+            CalculatorAction.Clear -> {
                 expression = ""
             }
-            CalculationAction.Decimal -> {
+            CalculatorAction.Decimal -> {
                 if (isDecimalValid()) {
                     expression += "."
                 }
             }
-            CalculationAction.Delete -> {
+            CalculatorAction.Delete -> {
                 expression = expression.dropLast(1)
             }
-            is CalculationAction.Number -> {
+            is CalculatorAction.Number -> {
                 expression += action.number
             }
-            is CalculationAction.Op -> {
+            is CalculatorAction.Op -> {
                 if (isOperationValid(action.operation)) {
                     expression += action.operation.symbol
                 }
             }
-            CalculationAction.Parantheses -> {
+            CalculatorAction.Parantheses -> {
                 processParantheses()
             }
         }
