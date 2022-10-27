@@ -15,27 +15,27 @@ class ExpressionWriterTest {
 
     @Test
     fun `Initial parantheses parsed`() {
-        writer.processAction(CalculationAction.Parantheses)
-        writer.processAction(CalculationAction.Number(5))
-        writer.processAction(CalculationAction.Op(Operation.ADD))
-        writer.processAction(CalculationAction.Number(4))
-        writer.processAction(CalculationAction.Parantheses)
+        writer.processAction(CalculatorAction.Parantheses)
+        writer.processAction(CalculatorAction.Number(5))
+        writer.processAction(CalculatorAction.Op(Operation.ADD))
+        writer.processAction(CalculatorAction.Number(4))
+        writer.processAction(CalculatorAction.Parantheses)
 
         assertThat(writer.expression).isEqualTo("(5+4)")
     }
 
     @Test
     fun `Closing parentheses if start not parsed`() {
-        writer.processAction(CalculationAction.Parantheses)
-        writer.processAction(CalculationAction.Parantheses)
+        writer.processAction(CalculatorAction.Parantheses)
+        writer.processAction(CalculatorAction.Parantheses)
         assertThat(writer.expression).isEqualTo("((")
     }
 
     @Test
     fun `Parentheses around a number are parsed`() {
-        writer.processAction(CalculationAction.Parantheses)
-        writer.processAction(CalculationAction.Number(4))
-        writer.processAction(CalculationAction.Parantheses)
+        writer.processAction(CalculatorAction.Parantheses)
+        writer.processAction(CalculatorAction.Number(4))
+        writer.processAction(CalculatorAction.Parantheses)
         assertThat(writer.expression).isEqualTo("(4)")
     }
 }

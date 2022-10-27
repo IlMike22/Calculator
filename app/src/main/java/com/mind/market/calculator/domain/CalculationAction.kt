@@ -1,11 +1,11 @@
 package com.mind.market.calculator.domain
 
-sealed interface CalculationAction {
-    data class Number(val number: Int) : CalculationAction
-    data class Op(val operation: Operation) : CalculationAction
-    object Clear : CalculationAction
-    object Delete : CalculationAction
-    object Parantheses : CalculationAction
-    object Calculate : CalculationAction
-    object Decimal : CalculationAction
+sealed interface CalculatorAction {
+    data class Number(val number: Int) : CalculatorAction
+    data class Op(val operation: Operation) : CalculatorAction
+    object Clear : CalculatorAction
+    object Delete : CalculatorAction
+    object Parantheses : CalculatorAction
+    object Calculate : CalculatorAction
+    object Decimal : CalculatorAction
 }
