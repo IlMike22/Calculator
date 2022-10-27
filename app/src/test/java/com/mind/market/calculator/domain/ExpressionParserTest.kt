@@ -22,7 +22,7 @@ class ExpressionParserTest {
             ExpressionPart.Number(3.0),
             ExpressionPart.Op(Operation.MULTIPLY),
             ExpressionPart.Number(4.0),
-            ExpressionPart.Op(Operation.DIVISION),
+            ExpressionPart.Op(Operation.DIVIDE),
             ExpressionPart.Number(3.0)
         )
 

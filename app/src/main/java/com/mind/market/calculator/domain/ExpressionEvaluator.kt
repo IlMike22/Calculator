@@ -44,7 +44,7 @@ class ExpressionEvaluator(
                     sum *= factor.value
                     remaining = factor.remainingExpression
                 }
-                ExpressionPart.Op(Operation.DIVISION) -> {
+                ExpressionPart.Op(Operation.DIVIDE) -> {
                     val factor = evaluateFactor(remaining.drop(1))
                     sum /= factor.value
                     remaining = factor.remainingExpression
