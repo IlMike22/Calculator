@@ -24,9 +24,9 @@ fun CalculatorButton(
             .clip(CircleShape)
             .background(
                 when (action.highlightLevel) {
-                    HighlightLevel.Highlighted -> MaterialTheme.colorScheme.surfaceVariant
-                    HighlightLevel.Neutral -> MaterialTheme.colorScheme.inverseSurface
-                    HighlightLevel.SemiHighlighted -> MaterialTheme.colorScheme.tertiary
+                    HighlightLevel.Neutral -> MaterialTheme.colorScheme.surfaceVariant
+                    HighlightLevel.SemiHighlighted -> MaterialTheme.colorScheme.inverseSurface
+                    HighlightLevel.Highlighted -> MaterialTheme.colorScheme.tertiary
                     HighlightLevel.StronglyHighlighted -> MaterialTheme.colorScheme.primary
                 }
             )
